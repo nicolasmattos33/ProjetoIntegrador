@@ -1,15 +1,13 @@
-import os
+def calcular_media_aluno(notas):
+    """ Sem nota, média zero. """
+    if not notas:
+        return 0.0
+    return sum(notas) / len(notas)
 
-def validar_e_limpar_notas(lista):
-    if not lista:
-        return []
-    
-    notas_validas = []
-    for item in lista:
-        try:
-            nota = float(item)
-            if 0 <= nota <= 10:
-                notas_validas.append(nota)
-        except (ValueError, TypeError):
-            continue
-    return notas_validas
+def classificar_desempenho(media):
+    if media >= 9.0:
+        return "DESTAQUE"
+    elif media >= 7.0:
+        return "APROVAÇÃO"
+    else:
+        return "RECUPERAÇÃO"
